@@ -12,7 +12,7 @@ Web de **Malva Brunch**, una cafetería de brunch de Sevilla, con su carta de co
 >
 > 💡 **Malva Brunch es un negocio ficticio**: el nombre, el logo, la dirección, el teléfono y el email son de ejemplo.
 
-🔗 **Demo:** https://corderocana-dev.github.io/malva-brunch/
+🔗 **Demo:** https://corderocana-dev.github.io/malva-brunch-cafeteria/
 
 ![Página de inicio](docs/01-inicio.png)
 
@@ -50,7 +50,7 @@ Web de **Malva Brunch**, una cafetería de brunch de Sevilla, con su carta de co
 ## 📁 Estructura
 
 ```
-malva-brunch/
+malva-brunch-cafeteria/
 ├── index.html      # Inicio: carrusel del local y destacados
 ├── comidas.html    # Carta de comidas
 ├── bebidas.html    # Carta de bebidas
@@ -71,7 +71,7 @@ malva-brunch/
 No necesita instalar nada: es una web estática.
 
 ```bash
-git clone https://github.com/corderocana-dev/malva-brunch.git
+git clone https://github.com/corderocana-dev/malva-brunch-cafeteria.git
 ```
 
 Abre `index.html` en el navegador. Si prefieres un servidor local, en VS Code puedes usar la extensión **Live Server**.
