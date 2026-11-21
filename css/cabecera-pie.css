@@ -1,0 +1,269 @@
+/* Malva Brunch · nuevo diseño de cabecera y pie
+   Mismos colores en modo claro y oscuro: siempre se leen bien. */
+:root {
+  --oro: #d9b77a;
+  --oro-suave: rgba(217, 183, 122, .35);
+  --morado-noche: #3a2a47;
+}
+
+/* ---------- CABECERA ---------- */
+.cabecera {
+  position: relative;
+  border-bottom: none;
+  background:
+    radial-gradient(ellipse at 50% -40%, rgba(217, 183, 122, .25), transparent 60%),
+    linear-gradient(180deg, #6b5480 0%, var(--morado) 55%, var(--morado-oscuro) 100%);
+  box-shadow: 0 6px 24px rgba(30, 18, 40, .35);
+}
+/* Línea dorada fina bajo la cabecera */
+.cabecera::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--oro), transparent);
+}
+
+.cabecera-interior { padding-block: 26px 18px; }
+
+/* Botones COMIDAS / BEBIDAS: translúcidos con texto claro; el de la página actual, sólido */
+.boton-seccion {
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+  font-size: 1.25rem;
+  letter-spacing: .03em;
+  box-shadow: none;
+  backdrop-filter: blur(4px);
+}
+.boton-seccion img {
+  width: 38px; height: 38px;
+  padding: 4px;
+  border-radius: 50%;
+  background: var(--crema);
+}
+.boton-seccion:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, .2);
+  border-color: var(--oro);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+}
+.boton-seccion[aria-current="page"] {
+  background: var(--crema);
+  color: var(--morado-noche);
+  border-color: var(--oro);
+  box-shadow: 0 0 0 3px var(--oro-suave);
+}
+
+/* Logo: círculo con borde dorado y nombre en claro */
+.logo-circulo {
+  width: 84px; height: 84px;
+  border: 3px solid var(--oro);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, .08), 0 8px 20px rgba(0, 0, 0, .3);
+  transition: transform .3s;
+}
+.logo:hover .logo-circulo { transform: rotate(-6deg) scale(1.04); }
+.logo-texto,
+.cabecera .logo-texto,
+.pie-centro .logo-texto {
+  margin-top: 8px;
+  border-top: 1px solid var(--oro);
+  color: #fff;
+  letter-spacing: .22em;
+  font-size: .7rem;
+}
+
+/* Barra de herramientas integrada, separada por una línea suave */
+.barra-herramientas {
+  padding-top: 12px;
+  padding-bottom: 16px;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+}
+.herramienta:hover,
+.herramienta:focus-visible { border-color: var(--oro); }
+
+/* ---------- PIE ---------- */
+.pie {
+  border-top: none;
+  color: #f3eef8;
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(217, 183, 122, .18), transparent 60%),
+    linear-gradient(180deg, var(--morado-oscuro) 0%, var(--morado-noche) 100%);
+}
+.pie::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--oro), transparent);
+}
+.pie-interior { padding-block: 40px 34px; }
+
+/* Cajas OTROS y CONTACTO: tarjetas translúcidas con texto claro (antes blancas) */
+.pie .caja {
+  max-width: 280px;
+  padding: 18px 22px 20px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .07);
+  color: #f3eef8;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06);
+}
+.pie .caja h2 {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--oro-suave);
+  color: var(--oro);
+  font-size: .95rem;
+  letter-spacing: .14em;
+}
+.pie .caja ul { gap: 10px; }
+.pie .caja li { font-size: .95rem; color: #ddd3e8; }
+.pie .caja a {
+  color: #fff;
+  text-decoration: none;
+  background-image: linear-gradient(var(--oro), var(--oro));
+  background-size: 0 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size .25s, color .2s;
+}
+.pie .caja a:hover { color: var(--oro); background-size: 100% 1px; text-decoration: none; }
+
+/* Columna central: separadores dorados y pagos sobre fondo claro para que se vean los logos */
+.pie-centro { border-inline: 1px solid var(--oro-suave); }
+.pagos {
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+/* Redes sociales: botones redondos en fila dentro del pie */
+.redes {
+  position: static;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 16px 26px;
+  box-shadow: none;
+}
+.redes a {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+  transition: transform .2s;
+}
+.redes a:hover { width: 40px; transform: translateY(-3px) scale(1.06); }
+
+/* Barra legal */
+.barra-legal {
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  background: rgba(0, 0, 0, .25);
+}
+.barra-legal ul { padding: 10px 16px; }
+.barra-legal a { color: #cfc4da; font-size: .85rem; }
+.barra-legal a:hover { color: var(--oro); }
+
+/* ---------- CARRUSEL PRINCIPAL ---------- */
+.carrusel-local {
+  /* Alto = alto de la foto central (16:10) + margen para los puntos */
+  height: calc(min(560px, 66vw) * .625 + 64px);
+  border-bottom: none;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, .55), transparent 65%),
+    linear-gradient(180deg, #cfc3de 0%, var(--lavanda) 100%);
+}
+/* Sombra interior arriba (continúa la cabecera) y línea dorada abajo */
+.carrusel-local::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(58, 42, 71, .35), transparent 22%);
+  pointer-events: none;
+}
+.carrusel-local::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--oro), transparent);
+}
+.carrusel-local .diapositiva {
+  width: min(560px, 66vw);
+  aspect-ratio: 16 / 10;
+  margin-top: -10px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(40, 20, 60, .28);
+}
+/* La foto central: más grande, con marco dorado y zoom lento */
+.carrusel-local .activa {
+  box-shadow: 0 0 0 3px var(--oro), 0 24px 50px rgba(40, 20, 60, .45);
+}
+.carrusel-local .activa img { animation: zoom-lento 6s ease-out both; }
+@keyframes zoom-lento { from { transform: scale(1.08); } to { transform: scale(1); } }
+/* Las laterales: veladas en morado en vez de grises */
+.carrusel-local .anterior,
+.carrusel-local .siguiente,
+.carrusel-local .anterior-2,
+.carrusel-local .siguiente-2 { filter: saturate(.7) brightness(.95); cursor: pointer; }
+.carrusel-local .anterior::after,
+.carrusel-local .siguiente::after,
+.carrusel-local .anterior-2::after,
+.carrusel-local .siguiente-2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(95, 74, 110, .35);
+}
+.carrusel-local .flecha-anterior { left: calc(50% - min(560px, 66vw) / 2 - 72px); }
+.carrusel-local .flecha-siguiente { right: calc(50% - min(560px, 66vw) / 2 - 72px); }
+
+/* Flechas de cristal */
+.carrusel-local .flecha {
+  border: 1px solid rgba(255, 255, 255, .6);
+  background: rgba(255, 255, 255, .75);
+  color: var(--morado-noche);
+  backdrop-filter: blur(6px);
+}
+.carrusel-local .flecha:hover { background: #fff; color: var(--morado); border-color: var(--oro); }
+
+/* Puntos: el actual se alarga en dorado */
+.carrusel-local .puntos { bottom: 14px; gap: 6px; }
+.carrusel-local .puntos button {
+  width: 9px; height: 9px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .7);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+  transition: width .3s, background .3s;
+}
+.carrusel-local .puntos button[aria-current="true"] { width: 26px; background: var(--oro); }
+
+/* Modo oscuro: fondo morado profundo */
+[data-tema="oscuro"] .carrusel-local {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(217, 183, 122, .14), transparent 65%),
+    linear-gradient(180deg, #2f2540 0%, #2b2335 100%);
+}
+
+@media (max-width: 680px) {
+  .carrusel-local { height: calc(80vw * .625 + 56px); }
+  .carrusel-local .diapositiva { width: 80vw; border-radius: 14px; }
+  .carrusel-local .flecha-anterior { left: 6px; }
+  .carrusel-local .flecha-siguiente { right: 6px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carrusel-local .activa img { animation: none; }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 680px) {
+  .cabecera-interior { padding-block: 18px 12px; }
+  .logo-circulo { width: 70px; height: 70px; }
+  .boton-seccion { font-size: 1.05rem; padding: 8px 12px; }
+  .boton-seccion img { width: 30px; height: 30px; }
+  .pie-centro { border-inline: none; border-block: 1px solid var(--oro-suave); }
+  .pie .caja { max-width: none; }
+}

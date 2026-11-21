@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bebidas · Malva Brunch</title>
+  <meta name="description" content="Bebidas de Malva Brunch: refrescos, zumos naturales, cafés y bebidas alcohólicas.">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,400;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/tienda.css">
+  <link rel="stylesheet" href="css/cabecera-pie.css">
+  <meta name="theme-color" content="#5f4a6e">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Malva Brunch">
+  <meta property="og:title" content="Bebidas · Malva Brunch">
+  <meta property="og:description" content="Bebidas de Malva Brunch: refrescos, zumos naturales, cafés y bebidas alcohólicas.">
+  <meta property="og:image" content="img/local-1.jpg">
+  <!-- Aplica el modo oscuro antes de pintar la página (sin parpadeo) -->
+  <script>try{var t=localStorage.getItem('tema-malva');if(t==='oscuro'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.dataset.tema='oscuro'}catch(e){}</script>
+</head>
+<body>
+  <header class="cabecera">
+    <nav class="contenedor cabecera-interior" aria-label="Principal">
+      <a class="boton-seccion" href="comidas.html">
+        <img src="img/icono-comidas.png" alt="" width="40" height="40">
+        COMIDAS
+      </a>
+      <a class="logo" href="index.html" aria-label="Malva Brunch, inicio">
+        <span class="logo-circulo"><img src="img/logo.svg" alt="" width="76" height="76"></span>
+        <span class="logo-texto">MALVA BRUNCH</span>
+      </a>
+      <a class="boton-seccion" href="bebidas.html" aria-current="page">
+        BEBIDAS
+        <img src="img/icono-bebidas.png" alt="" width="40" height="40">
+      </a>
+    </nav>
+    <div class="contenedor barra-herramientas">
+      <p class="estado-local" id="estado-local" hidden></p>
+      <div class="herramientas">
+        <button type="button" class="herramienta" data-abrir="panel-buscar" aria-label="Buscar en la carta">
+          <span aria-hidden="true">🔍</span><span class="herramienta-texto">Buscar</span>
+        </button>
+        <a class="herramienta" href="https://www.google.com/maps/search/?api=1&amp;query=C%2F%20Paol%202-M%2C%20Sevilla" target="_blank" rel="noopener" aria-label="Cómo llegar (abre Google Maps)">
+          <span aria-hidden="true">📍</span><span class="herramienta-texto">Cómo llegar</span>
+        </a>
+        <button type="button" class="herramienta" id="cambiar-tema" aria-pressed="false" aria-label="Modo oscuro">
+          <span aria-hidden="true" class="icono-tema">🌙</span><span class="herramienta-texto">Modo oscuro</span>
+        </button>
+        <button type="button" class="herramienta herramienta-pedido" data-abrir="panel-pedido" aria-label="Mi pedido">
+          <span aria-hidden="true">🛒</span><span class="herramienta-texto">Mi pedido</span>
+          <b class="contador" data-contador>0</b>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="sr-only">Bebidas</h1>
+
+    <section class="seccion carta-seccion" aria-label="Carta de bebidas">
+      <div class="contenedor carta">
+        <ul class="categorias" aria-label="Categorías">
+          <li><button type="button" data-categoria="gaseosa" aria-pressed="false">Bebida<br>gaseosa</button></li>
+          <li><button type="button" data-categoria="zumo" aria-pressed="false">Zumo<br>natural</button></li>
+          <li><button type="button" data-categoria="cafe" aria-pressed="false">Cafés</button></li>
+          <li><button type="button" data-categoria="alcohol" aria-pressed="false">Bebidas<br>alcohólicas</button></li>
+        </ul>
+        <div>
+          <ul class="galeria">
+            <li data-categoria="gaseosa">
+              <figure><button type="button" class="ampliar" aria-label="Ampliar foto: Refresco de frutos rojos"><img src="img/gaseosa-frutos-rojos.jpg" alt="Refresco de frutos rojos" loading="lazy" width="1200" height="675"></button>
+                <figcaption><span>Refresco de frutos rojos</span> <span class="precio">2,80 €</span></figcaption></figure>
+              <div class="acciones-producto"><button type="button" class="anadir" data-producto="Refresco de frutos rojos">+ Añadir</button><a class="pedir" href="https://wa.me/?text=Hola%2C%20quiero%20pedir%3A%20Refresco%20de%20frutos%20rojos" target="_blank" rel="noopener">Pedir ya</a></div>
+            </li>
+            <li data-categoria="cafe">
+              <figure><button type="button" class="ampliar" aria-label="Ampliar foto: Café latte"><img src="img/cafe-latte.jpg" alt="Café latte" loading="lazy" width="1200" height="675"></button>
+                <figcaption><span>Café latte</span> <span class="precio">2,20 €</span></figcaption></figure>
+              <div class="acciones-producto"><button type="button" class="anadir" data-producto="Café latte">+ Añadir</button><a class="pedir" href="https://wa.me/?text=Hola%2C%20quiero%20pedir%3A%20Caf%C3%A9%20latte" target="_blank" rel="noopener">Pedir ya</a></div>
+            </li>
+            <li data-categoria="zumo">
+              <figure><button type="button" class="ampliar" aria-label="Ampliar foto: Batido de fresa"><img src="img/zumo-fresa.jpg" alt="Batido de fresa" loading="lazy" width="1200" height="675"></button>
+                <figcaption><span>Batido de fresa</span> <span class="precio">3,50 €</span></figcaption></figure>
+              <div class="acciones-producto"><button type="button" class="anadir" data-producto="Batido de fresa">+ Añadir</button><a class="pedir" href="https://wa.me/?text=Hola%2C%20quiero%20pedir%3A%20Batido%20de%20fresa" target="_blank" rel="noopener">Pedir ya</a></div>
+            </li>
+            <li data-categoria="zumo">
+              <figure><button type="button" class="ampliar" aria-label="Ampliar foto: Batido de frutos del bosque"><img src="img/zumo-frutos-del-bosque.jpg" alt="Batido de frutos del bosque" loading="lazy" width="1200" height="675"></button>
+                <figcaption><span>Batido de frutos del bosque</span> <span class="precio">3,80 €</span></figcaption></figure>
+              <div class="acciones-producto"><button type="button" class="anadir" data-producto="Batido de frutos del bosque">+ Añadir</button><a class="pedir" href="https://wa.me/?text=Hola%2C%20quiero%20pedir%3A%20Batido%20de%20frutos%20del%20bosque" target="_blank" rel="noopener">Pedir ya</a></div>
+            </li>
+            <li data-categoria="alcohol">
+              <figure><button type="button" class="ampliar" aria-label="Ampliar foto: Combinados y copas"><img src="img/alcohol-copas.jpg" alt="Combinados y copas" loading="lazy" width="1200" height="675"></button>
+                <figcaption><span>Combinados y copas</span> <span class="precio">6,50 €</span></figcaption></figure>
+              <div class="acciones-producto"><button type="button" class="anadir" data-producto="Combinados y copas">+ Añadir</button><a class="pedir" href="https://wa.me/?text=Hola%2C%20quiero%20pedir%3A%20Combinados%20y%20copas" target="_blank" rel="noopener">Pedir ya</a></div>
+            </li>
+            <li data-categoria="cafe">
+              <figure><button type="button" class="ampliar" aria-label="Ampliar foto: Capuchino con canela"><img src="img/cafe-capuchino.jpg" alt="Capuchino con canela" loading="lazy" width="1200" height="675"></button>
+                <figcaption><span>Capuchino con canela</span> <span class="precio">2,40 €</span></figcaption></figure>
+              <div class="acciones-producto"><button type="button" class="anadir" data-producto="Capuchino con canela">+ Añadir</button><a class="pedir" href="https://wa.me/?text=Hola%2C%20quiero%20pedir%3A%20Capuchino%20con%20canela" target="_blank" rel="noopener">Pedir ya</a></div>
+            </li>
+          </ul>
+          <button type="button" class="ver-todo" hidden>Ver todo</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" aria-labelledby="titulo-pensado">
+      <div class="contenedor">
+        <h2 class="titulo-seccion" id="titulo-pensado">Pensado para ti...</h2>
+        <div class="carrusel-tarjetas ancho">
+          <button type="button" class="flecha flecha-anterior" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <div class="ventana">
+            <div class="pista">
+              <figure class="tarjeta">
+                <div class="tarjeta-imagen"><img src="img/pensado-zumos.jpg" alt="Botellas de zumo natural rodeadas de fruta" loading="lazy"></div>
+                <figcaption class="tarjeta-texto">Zumos naturales</figcaption>
+              </figure>
+              <figure class="tarjeta">
+                <div class="tarjeta-imagen"><img src="img/pensado-refrescos.jpg" alt="Botellas de refrescos de varios sabores" loading="lazy"></div>
+                <figcaption class="tarjeta-texto">Refrescos de colores</figcaption>
+              </figure>
+            </div>
+          </div>
+          <button type="button" class="flecha flecha-siguiente" aria-label="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie-interior">
+      <div class="pie-columna">
+        <nav class="caja" aria-labelledby="titulo-otros">
+          <h2 id="titulo-otros">OTROS</h2>
+          <ul>
+            <li><a href="info.html#sugerencias">Sugerencias y quejas</a></li>
+            <li><a href="info.html#conocenos">Conócenos</a></li>
+            <li><a href="info.html#pedidos">Pedidos</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="pie-columna pie-centro">
+        <a class="logo" href="index.html" aria-label="Malva Brunch, inicio">
+          <span class="logo-circulo"><img src="img/logo.svg" alt="" width="76" height="76"></span>
+          <span class="logo-texto">MALVA BRUNCH</span>
+        </a>
+        <img class="pagos" src="img/pagos.png" alt="Aceptamos PayPal, Visa, Mastercard, Maestro y American Express" width="170" height="61">
+      </div>
+      <div class="pie-columna">
+        <address class="caja">
+          <h2>CONTACTO</h2>
+          <ul>
+            <li>Tlf.: <a href="tel:+34600000000">600 000 000</a></li>
+            <li>Email: <a href="mailto:hola@malvabrunch.example">hola@malvabrunch.example</a></li>
+            <li>Dir.: <a href="https://www.google.com/maps/search/?api=1&amp;query=C%2F%20Paol%202-M%2C%20Sevilla" target="_blank" rel="noopener">C/ Paol, 2-M, Sevilla</a></li>
+          </ul>
+        </address>
+      </div>
+    </div>
+    <!-- Redes sociales (enlazan a la página principal de cada red) -->
+    <ul class="redes" aria-label="Redes sociales">
+      <li><a class="red-whatsapp" href="https://www.whatsapp.com/" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.2-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3a.4.4 0 0 0 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
+      </a></li>
+      <li><a class="red-facebook" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.6V4.4a22 22 0 0 0-2.4-.1c-2.4 0-4 1.4-4 4.1v2.4H7.6V14h2.7v8z"/></svg>
+      </a></li>
+      <li><a class="red-youtube" href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8A26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg>
+      </a></li>
+      <li><a class="red-instagram" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.4A4.6 4.6 0 1 0 16.6 12 4.6 4.6 0 0 0 12 7.4zm0 7.6a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm4.8-8.9a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1zM20.9 8a5.3 5.3 0 0 0-1.5-3.4A5.3 5.3 0 0 0 16 3.1C14.7 3 9.3 3 8 3.1a5.3 5.3 0 0 0-3.4 1.5A5.3 5.3 0 0 0 3.1 8C3 9.3 3 14.7 3.1 16a5.3 5.3 0 0 0 1.5 3.4A5.3 5.3 0 0 0 8 20.9c1.3.1 6.7.1 8 0a5.3 5.3 0 0 0 3.4-1.5 5.3 5.3 0 0 0 1.5-3.4c.1-1.3.1-6.7 0-8zm-2 9.6a3 3 0 0 1-1.7 1.7c-1.2.5-4 .4-5.2.4s-4 .1-5.2-.4a3 3 0 0 1-1.7-1.7c-.5-1.2-.4-4-.4-5.2s-.1-4 .4-5.2a3 3 0 0 1 1.7-1.7c1.2-.5 4-.4 5.2-.4s4-.1 5.2.4a3 3 0 0 1 1.7 1.7c.5 1.2.4 4 .4 5.2s.1 4-.4 5.2z"/></svg>
+      </a></li>
+      <li><a class="red-x" href="https://x.com/" target="_blank" rel="noopener" aria-label="X (Twitter)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L2 3h6.4l4.4 5.8zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></svg>
+      </a></li>
+    </ul>
+    <nav class="barra-legal" aria-label="Información legal">
+      <ul>
+        <li><a href="info.html#privacidad">Política de privacidad</a></li>
+        <li><a href="info.html#condiciones">Condiciones de uso</a></li>
+        <li><a href="info.html#declaracion">Declaración de privacidad</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+
+  <!-- Buscador -->
+  <dialog class="panel" id="panel-buscar" aria-labelledby="titulo-buscar">
+    <div class="panel-cabecera">
+      <h2 id="titulo-buscar">Buscar en la carta</h2>
+      <button type="button" class="panel-cerrar" data-cerrar aria-label="Cerrar">✕</button>
+    </div>
+    <input type="search" id="buscador" placeholder="Ej. café, gofres, zumo…" aria-label="Buscar productos" autocomplete="off">
+    <ul class="resultados" id="resultados" aria-live="polite"></ul>
+  </dialog>
+
+  <!-- Mi pedido -->
+  <dialog class="panel" id="panel-pedido" aria-labelledby="titulo-pedido">
+    <div class="panel-cabecera">
+      <h2 id="titulo-pedido">Mi pedido</h2>
+      <button type="button" class="panel-cerrar" data-cerrar aria-label="Cerrar">✕</button>
+    </div>
+    <ul class="lineas-pedido" id="lineas-pedido"></ul>
+    <p class="total-pedido">Total: <b id="total-pedido">0,00 €</b></p>
+    <a class="boton boton-whatsapp" id="enviar-pedido" href="#" target="_blank" rel="noopener">Enviar pedido por WhatsApp</a>
+    <button type="button" class="vaciar" id="vaciar-pedido">Vaciar pedido</button>
+  </dialog>
+
+  <!-- Foto ampliada -->
+  <dialog class="visor" id="visor" aria-label="Foto ampliada">
+    <button type="button" class="panel-cerrar" data-cerrar aria-label="Cerrar">✕</button>
+    <img id="visor-img" src="img/logo.svg" alt="">
+    <p id="visor-texto"></p>
+  </dialog>
+
+  <button type="button" class="volver-arriba" id="volver-arriba" aria-label="Volver arriba" hidden>↑</button>
+
+  <script src="js/main.js"></script>
+  <script src="js/tienda.js"></script>
+</body>
+</html>
